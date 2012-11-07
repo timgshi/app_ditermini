@@ -10,8 +10,12 @@
   <body>
     <%= render 'layouts/header' %> <!-- MAY ONLY WANT THIS FOR HOME PAGE?? -->
     <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %> <!-- Notice how current layout puts this within body. Maybe pull it out? -->
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>
