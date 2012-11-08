@@ -10,10 +10,16 @@ class PhotosController < ApplicationController
   end
 
   def create
-  	@photo = current_user.photos.build(param[:photo])
-  	if @photo.save
+  	@photo = Photo.new #current_user.photos.build(param[:photo])
+    name = params[:photo][:image].original_filename
+    @photo.update_attributes(user_id: current_user.id, filename: name, caption: params[:photo][:caption])
+    if @photo.save
+      path = File.join("public/images", name)
+      File.open(path, "wb") do |f|
+        f.write(params[:photo][:image].read())
+      end
   		flash[:success] = "Photo uploaded!"
-  		redirect_to @photo
+  		redirect_to root_url
   	else 
   		render 'new'
   	end
@@ -23,4 +29,11 @@ class PhotosController < ApplicationController
     @photo.destroy
     redirect_to root_url
   end
+
+  private
+
+    def correct_user
+      @photo = current_user.photos.find_by_id(params[:id])
+      redirect_to root_url if @photo.nil?
+    end
 end
