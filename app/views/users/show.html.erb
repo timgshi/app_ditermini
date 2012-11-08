@@ -8,4 +8,14 @@
       </h1>
     </section>
   </aside>
+  <div class="span8">
+    <% if @user.photos.any? %>
+      <h3>Photos (<%= @user.photos.count %>)</h3>
+      <ol class="microposts"> <!-- NEED TO CHANGE THIS CSS -->
+        <%= render @photos %>
+      </ol>
+      <%= will_paginate @photos %>
+    <% end %>
+  </div>
+
 </div>
