@@ -1,4 +1,4 @@
-class SendTextController < ApplicationController
+class SmsController < ApplicationController
 
   def send_text_message
     number_to_send_to = params[:number_to_send_to]
@@ -16,4 +16,5 @@ class SendTextController < ApplicationController
       :body => message
     )
   end
+  
 end
