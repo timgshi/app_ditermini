@@ -67,6 +67,18 @@ class UsersController < ApplicationController
     render 'show_notifications'
   end
 
+  def vote
+    curUser = User.find_by_id(session[:user_id])
+    photo = Photo.find_by_id(params[:photo_id])
+    if params[:voteYes] == 1
+      curUser.vote_for(photo)
+    else
+      curUser.vote_against(photo)
+    end
+    return "<div class=\"ui-block-a\"><button id=\"yes" + photo.id + "\" type=\"button\" style=\"background:Green\">Yes : " + pic.votes_for + "</button></div>
+      <div class=\"ui-block-b\"><button id=\"no" + photo.id + "\" type=\"button\" style=\"background:Red\" >No : " + pic.votes_against + "</button></div>"
+  end
+
   private
 
     def signed_in_user
