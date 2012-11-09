@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20121109112851) do
-=======
-ActiveRecord::Schema.define(:version => 20121109091618) do
->>>>>>> 739309e8a573bb36cfd113d0b74f62a9a6abc797
+ActiveRecord::Schema.define(:version => 20121109213744) do
 
   create_table "notifications", :force => true do |t|
     t.integer  "notifier_id"
@@ -38,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20121109091618) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.float    "lat"
+    t.float    "lng"
   end
 
   add_index "photos", ["user_id", "created_at"], :name => "index_photos_on_user_id_and_created_at"
