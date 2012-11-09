@@ -25,6 +25,31 @@ class PhotosController < ApplicationController
   	end
   end
 
+# NOT SURE WHICH TEMPLATE TO PUT THIS IN YET, BUT THE CODE WILL GRAB LOCATION
+# <script>
+
+# $(document).ready(function() {
+
+#   function success(position) {
+#     var lat = position.coords.latitude;
+#     var lng = position.coords.longitude;
+#   }
+
+#   function error(msg) {
+#     var errMsg = typeof msg == 'string' ? msg : "Geolocation failed";
+#     $('#msg').html(errMsg);
+#   }
+
+#   if (navigator.geolocation) {
+#       navigator.geolocation.getCurrentPosition(success, error);
+#   } else {
+#       error('Geolocation not supported');
+#   }
+
+# });
+
+# </script>
+
   def destroy
     @photo.destroy
     redirect_to root_url
