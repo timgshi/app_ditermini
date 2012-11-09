@@ -3,4 +3,22 @@
     <%= render partial: 'shared/feed_item', collection: @feed_items %>
   </ol>
   <%= will_paginate @feed_items %>
+<script type="text/javascript">
+	$(".button").bind("bind", function (event, ui) {
+		var photoId;
+		var voteYes;
+		var id = event.id;
+		var parent = event.parentNode;
+		if (id.substring(0, 2) == "no") {
+			photoId = id.substring(2);
+			voteYes = 0;
+		} else {
+			photoId = id.substring(3);
+			voteYes = 1;
+		}
+		$.post("user/vote", {"photoId": photoId, "voteYes": voteYes}, function (data) {
+			$(id).parent.html(data);
+		});
+	});
+</script>
 <% end %>
