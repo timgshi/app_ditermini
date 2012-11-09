@@ -1,12 +1,12 @@
 AppDitermini::Application.routes.draw do
   resources :users do
     member do
-      get :following, :followers, :notifiers
+      get :following, :followers, :notifiers, :show
     end
   end
   
   resources :sessions, only: [:new, :create, :destroy]
-  resources :photos, only: [:create, :destroy]
+  resources :photos, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :notifications, only: [:create]
 
@@ -19,6 +19,7 @@ AppDitermini::Application.routes.draw do
   match '/help', to: "static_pages#help"
   match '/about', to: "static_pages#about"
   match '/contact', to: "static_pages#contact"
+  match '/feed', to: "static_pages#feed"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

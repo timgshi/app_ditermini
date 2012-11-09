@@ -1,4 +1,5 @@
-<!-- This type of header bar is inspired from the tutorial. May want to use only for home page? -->
+<!-- This is the BOOTSTRAP HEADER. CURERNTLY TURNED OFF-->
+<% if false %> 
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
@@ -31,4 +32,21 @@
       </nav>
     </div>
   </div>
+</header>
+<% end %>
+
+<!-- This is the JQUERY HEADER. CURRENTLY TURNED ON! -->
+<header>
+  <div data-role="header"> 
+    <h3>Ditermini</h3> 
+    <% if signed_in? %>
+      <div data-role="button", class="ui-btn-right">
+          <%= link_to "Sign out", signout_path, method: "delete" %>
+      </div>
+    <% else %>
+      <div data-role="button", class="ui-btn-right">
+      <%= link_to "Sign in", signin_path %>
+      </div>
+    <% end %>
+  </div> 
 </header>

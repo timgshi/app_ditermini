@@ -14,7 +14,11 @@ class PhotosController < ApplicationController
     @photo.update_attributes(user_id: current_user.id, caption: params[:photo][:caption])
     if @photo.save
   		flash[:success] = "Photo uploaded!"
-  		redirect_to root_url
+      @msg = "uploaded a photo!"
+      current_user.followers.each do |other_user|
+        current_user.notify!(other_user, @msg)
+  		end
+      redirect_to root_url
   	else 
       flash[:error] = "Didn't work..."
   		redirect_to root_url

@@ -10,8 +10,8 @@
     <%= link_to "delete", photo, method: :delete, data: { confirm: "You sure?" }, title: photo.filename %>
   <% else %>
     <div class="ui-grid-a">
-      <div class="ui-block-a"><button id="yes<%= pic.id %>" type="button" style="background:Green">Yes</button></div>
-      <div class="ui-block-b"><button id="no<%= pic.id %>" type="button" style="background:Red" >No</button></div>     
+      <div class="ui-block-a"><button id="yes<%= photo.id %>" type="button" style="background:Green">Yes</button></div>
+      <div class="ui-block-b"><button id="no<%= photo.id %>" type="button" style="background:Red" >No</button></div>     
     </div>
   <% end %>
 </li>

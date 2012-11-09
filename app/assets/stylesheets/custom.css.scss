@@ -103,6 +103,17 @@ footer ul li {
   margin-left: 10px;
 }
 
+/* NAV BAR - JQUERY INSERTION HERE - STYLING */
+
+.nav-bar .ui-btn .ui-btn-inner { padding-top: 40px !important; } 
+.nav-bar .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#following .ui-icon { background:  url(/icons/112-group.png) 50% 50% no-repeat; background-size: 26px 22px; }
+#explore .ui-icon { background: url(/icons/globe_24.png) 50% 50% no-repeat; background-size: 24px 26px; }
+#upload .ui-icon { background:  url(/icons/86-camera.png) 50% 50% no-repeat; background-size: 24px 20px;  }
+#notifications .ui-icon { background:  url(/icons/145-persondot.png) 50% 50% no-repeat;  background-size: 24px 24px; }
+#my-closet .ui-icon { background:  url(/icons/191-collection.png) 50% 50% no-repeat;  background-size: 22px 24px; }
+    
+
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
