@@ -11,7 +11,7 @@
 #
 
 class Photo < ActiveRecord::Base
-  acts_as_votable
+  acts_as_voteable
   attr_accessible :filename, :user_id, :caption
   belongs_to :user
 
