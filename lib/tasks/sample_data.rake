@@ -4,6 +4,7 @@ namespace :db do
     make_users
     make_photos
     make_relationships
+    make_notifications
   end
 end
 
@@ -39,4 +40,14 @@ def make_relationships
   followers      = users[3..40]
   followed_users.each { |followed| user.follow!(followed) }
   followers.each      { |follower| follower.follow!(user) }
+end
+
+def make_notifications
+  users = User.all
+  user = users.first
+  notified_users = users[2..50]
+  notifiers = users[3..40]
+  msg = "did something super duper important"
+  notified_users.each { |notified| user.notify!(notified, msg)}
+  notifiers.each { |notifier| notifier.notify!(user, msg)}
 end

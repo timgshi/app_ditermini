@@ -1,13 +1,14 @@
 AppDitermini::Application.routes.draw do
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :notifiers
     end
   end
   
   resources :sessions, only: [:new, :create, :destroy]
   resources :photos, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :notifications, only: [:create]
 
   root to: "static_pages#home"
   

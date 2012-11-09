@@ -1,0 +1,22 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= gravatar_for @user %>
+      <h1><%= @user.name %></h1>
+      <span><%= link_to "view my profile", @user %></span>
+      <span><b>Photos:</b> <%= @user.photos.count %></span>
+    </section>
+    <section>
+      <%= render 'shared/notification_stats' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h3><%= @title %></h3>
+    <% if @notifications.any? %>
+      <ul class="users">
+        <%= render @notifications %>
+      </ul>
+    <% end %>
+  </div>
+</div>

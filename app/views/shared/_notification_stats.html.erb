@@ -1,0 +1,10 @@
+<!--<% if @user == current_user %>-->
+<div class="stats">
+  <a href="<%= notifiers_user_path(@user) %>">
+    <strong  class="stat">
+      <%= @user.notifiers.count %>
+    </strong>
+    notifications
+  </a>
+</div>
+<!--<% end %>-->

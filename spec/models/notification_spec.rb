@@ -1,16 +1,17 @@
 # == Schema Information
 #
-# Table name: relationships
+# Table name: notifications
 #
 #  id          :integer          not null, primary key
-#  follower_id :integer
-#  followed_id :integer
+#  notifier_id :integer
+#  notified_id :integer
+#  message     :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
 require 'spec_helper'
 
-describe Relationship do
+describe Notification do
   pending "add some examples to (or delete) #{__FILE__}"
 end

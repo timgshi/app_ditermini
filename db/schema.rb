@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121108083651) do
+ActiveRecord::Schema.define(:version => 20121108122249) do
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "notifier_id"
+    t.integer  "notified_id"
+    t.string   "message"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "notifications", ["notified_id"], :name => "index_notifications_on_notified_id"
+  add_index "notifications", ["notifier_id"], :name => "index_notifications_on_notifier_id"
 
   create_table "photos", :force => true do |t|
     t.string   "filename"

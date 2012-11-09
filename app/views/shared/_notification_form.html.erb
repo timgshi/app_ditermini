@@ -1,0 +1,4 @@
+<%= f.form_for(current_user.notifications.build(notified_id: @user.id) do |n| %>
+	<div><%= n.hidden_field :notified_id %></div>
+	<div><%= n.hidden_field :message, :value => msg %></div>
+<% end %>

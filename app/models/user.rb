@@ -22,6 +22,12 @@ class User < ActiveRecord::Base
   has_many :reverse_relationships, foreign_key: "followed_id", class_name:  "Relationship", dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
+  has_many :notifications, foreign_key: "notifier_id", dependent: :destroy
+  has_many :notified_users, through: :notifications, source: :notified
+  has_many :reverse_notifications, foreign_key: "notified_id", class_name:  "Notification", dependent:   :destroy
+  has_many :notifiers, through: :reverse_notifications, source: :notifier
+
+
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
@@ -45,6 +51,14 @@ class User < ActiveRecord::Base
 
   def unfollow!(other_user)
     self.relationships.find_by_followed_id(other_user.id).destroy
+  end
+
+  def notifiedme?(other_user)
+    self.notifications.find_by_notifier_id(other_user.id)
+  end
+
+  def notify!(other_user, msg)
+    self.notifications.create!(notified_id: other_user.id, message: msg)
   end
 
   private

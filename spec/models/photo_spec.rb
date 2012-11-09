@@ -7,6 +7,7 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  caption    :string(255)      default("")
 #
 
 describe Photo do
