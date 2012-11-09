@@ -12,7 +12,7 @@
 
 class Photo < ActiveRecord::Base
   acts_as_voteable
-  
+
   attr_accessible :user_id, :caption, :image
  
   belongs_to :user
