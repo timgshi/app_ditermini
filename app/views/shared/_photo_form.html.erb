@@ -3,6 +3,9 @@
   <div class="field">
     <%= f.text_field :caption, placeholder: "Compose a caption" %>
   </div>
-  <%= f.file_field(:image) %>
+  <div class="field">
+  	<%= f.label :image %><br />
+  	<%= f.file_field :image %>
+  </div>
   <%= f.submit "Upload", class: "btn btn-large btn-primary" %>
 <% end %>

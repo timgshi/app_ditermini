@@ -14,6 +14,14 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
+  #acts_as_voter
+
+  # The following line is optional, and tracks karma (up votes) for photos this user has submitted.
+  # Each photo has a submitter_id column that tracks the user who submitted it.
+  # The option :weight value will be multiplied to any karma from that voteable model (defaults to 1).
+  # You can track any voteable model.
+  #has_karma(:photos, :as => :submitter, :weight => 0.5)
+
   has_secure_password
 
   has_many :photos, dependent: :destroy
@@ -36,6 +44,12 @@ class User < ActiveRecord::Base
   validates :email, presence:   true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
 
   def feed
     Photo.from_users_followed_by(self)

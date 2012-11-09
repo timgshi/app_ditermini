@@ -1,7 +1,7 @@
 <li>
   <span class="content">
   	<!--image_tag(gravatar_url, alt: user.name, class: "gravatar") -->
-  	<img src='<%= photo.filename %>'/>
+  	<%= image_tag photo.image.url(:feed) %>
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(photo.created_at) %> ago.

@@ -7,6 +7,9 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'twilio-ruby'
+gem 'thumbs_up'
+gem 'paperclip'
+gem 'aws-sdk'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

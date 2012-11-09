@@ -11,17 +11,13 @@ class PhotosController < ApplicationController
 
   def create
   	@photo = Photo.new #current_user.photos.build(param[:photo])
-    name = params[:photo][:image].original_filename
-    @photo.update_attributes(user_id: current_user.id, filename: name, caption: params[:photo][:caption])
+    @photo.update_attributes(user_id: current_user.id, caption: params[:photo][:caption])
     if @photo.save
-      path = File.join("public/images", name)
-      File.open(path, "wb") do |f|
-        f.write(params[:photo][:image].read())
-      end
   		flash[:success] = "Photo uploaded!"
   		redirect_to root_url
   	else 
-  		render 'new'
+      flash[:error] = "Didn't work..."
+  		redirect_to root_url
   	end
   end
 

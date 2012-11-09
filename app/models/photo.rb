@@ -11,13 +11,19 @@
 #
 
 class Photo < ActiveRecord::Base
-  attr_accessible :filename, :user_id, :caption
+  attr_accessible :user_id, :caption, :image
   belongs_to :user
 
   validates :user_id, presence: true
-  validates :filename, presence: true
   
   default_scope order: 'photos.created_at DESC'
+
+  has_attached_file :image, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>',
+    feed: '320>'
+  }
 
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships
