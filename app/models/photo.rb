@@ -12,6 +12,7 @@
 
 class Photo < ActiveRecord::Base
   attr_accessible :user_id, :caption, :image
+ 
   belongs_to :user
 
   validates :user_id, presence: true

@@ -1,4 +1,4 @@
-<li>
+  <li>
   <span class="content">
   	<!--image_tag(gravatar_url, alt: user.name, class: "gravatar") -->
   	<%= image_tag photo.image.url(:feed) %>
@@ -8,5 +8,29 @@
   </span>
   <% if current_user?(photo.user) %>
     <%= link_to "delete", photo, method: :delete, data: { confirm: "You sure?" }, title: photo.filename %>
+  <% else %>
+    <div class="ui-grid-a">
+      <div class="ui-block-a"><button id="yes<%= pic.id %>" type="button" style="background:Green">Yes</button></div>
+      <div class="ui-block-b"><button id="no<%= pic.id %>" type="button" style="background:Red" >No</button></div>     
+    </div>
   <% end %>
 </li>
+
+<script type="text/javascript">
+  $(".button").bind("bind", function (event, ui) {
+    var photoId;
+    var voteYes;
+    var id = event.id;
+    var parent = event.parentNode;
+    if (id.substring(0, 2) == "no") {
+      photoId = id.substring(2);
+      voteYes = 0;
+    } else {
+      photoId = id.substring(3);
+      voteYes = 1;
+    }
+    $.post("user/vote", {"photoId": photoId, "voteYes" = voteYes}, function (data) {
+      $(id).parent.html(data);
+    });
+  });
+</script>

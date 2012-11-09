@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121109112851) do
+=======
+ActiveRecord::Schema.define(:version => 20121109091618) do
+>>>>>>> 739309e8a573bb36cfd113d0b74f62a9a6abc797
 
   create_table "notifications", :force => true do |t|
     t.integer  "notifier_id"
