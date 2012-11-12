@@ -1,5 +1,9 @@
+<div data-role="content">
+<div data-role="fieldcontain">
 <%= form_for(current_user.relationships.build(followed_id: @user.id), remote: true) do |f| %>
   <div><%= f.hidden_field :followed_id %></div>
 
-  <%= f.submit "Follow", class: "btn btn-large btn-primary" %>
+  <div> <%= f.submit "Follow", class: "btn btn-large btn-primary" %>
 <% end %>
+</div>
+</div>

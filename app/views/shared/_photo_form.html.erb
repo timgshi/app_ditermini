@@ -1,3 +1,5 @@
+<div data-role='content'>
+<div data-role='field contain'>
 <%= form_for(@photo) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
@@ -11,6 +13,8 @@
   </div>
   <%= f.submit "Upload", class: "btn btn-large btn-primary" %>
 <% end %>
+</div>
+</div>
 <script>
 
 $(document).ready(function() {
