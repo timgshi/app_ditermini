@@ -1,19 +1,15 @@
 <div data-role='content'>
-<div data-role='fieldcontain'>
 <%= form_for(@photo) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_field :caption, placeholder: "Write a question" %>
-  </div>
-  <div class="field">
+
+    	<%= f.text_field :caption, placeholder: "Write a question" %>
   	<%= f.label :image %><br />
   	<%= f.file_field :image %>
   	<%= f.hidden_field :lat %>
   	<%= f.hidden_field :lng %>
-  </div>
-  <%= f.submit "Upload", class: "btn btn-large btn-primary" %>
+  	<%#= f.submit "Upload", class: "btn btn-large btn-primary" %>
+	<%= link_to_function "Upload", "document.getElementById('new_photo').submit();", :class => "btn btn-large btn-primary" %>
 <% end %>
-</div>
 </div>
 <script>
 

@@ -7,11 +7,12 @@ class PhotosController < ApplicationController
 
   def new
   	@photo = Photo.new
+
   end
 
   def create
-  	@photo = Photo.new #current_user.photos.build(param[:photo])
-    @photo.update_attributes(user_id: current_user.id, caption: params[:photo][:caption])
+  	@photo = current_user.photos.create(params[:photo])
+   # @photo.update_attributes(user_id: current_user.id, caption: params[:photo][:caption])
     if @photo.save
   		flash[:success] = "Photo uploaded!"
       @msg = "uploaded a photo!"
