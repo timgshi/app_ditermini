@@ -3,7 +3,7 @@
 <%= form_for(@photo) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_field :caption, placeholder: "Write a message" %>
+    <%= f.text_field :caption, placeholder: "Write a question" %>
   </div>
   <div class="field">
   	<%= f.label :image %><br />
