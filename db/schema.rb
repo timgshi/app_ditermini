@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20121109213744) do
   add_index "notifications", ["notifier_id"], :name => "index_notifications_on_notifier_id"
 
   create_table "photos", :force => true do |t|
+    t.string   "filename"
     t.integer  "user_id"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
