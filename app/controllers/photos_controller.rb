@@ -11,7 +11,8 @@ class PhotosController < ApplicationController
 
   def create
   	@photo = Photo.new #current_user.photos.build(param[:photo])
-    @photo.update_attributes(user_id: current_user.id, caption: params[:photo][:caption])
+    # @photo.update_attributes(user_id: current_user.id, caption: params[:photo][:caption])
+    @photo.update_attributes(params[:photo])
     if @photo.save
   		flash[:success] = "Photo uploaded!"
   		redirect_to root_url

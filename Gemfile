@@ -10,6 +10,7 @@ gem 'twilio-ruby'
 gem 'thumbs_up'
 gem 'paperclip'
 gem 'aws-sdk'
+gem "cocaine"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
