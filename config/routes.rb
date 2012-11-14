@@ -6,7 +6,7 @@ AppDitermini::Application.routes.draw do
   end
   
   resources :sessions, only: [:new, :create, :destroy]
-  resources :photos, only: [:new, :create, :destroy]
+  resources :photos, only: [:new, :create, :destroy, :show]
   resources :relationships, only: [:create, :destroy]
   resources :notifications, only: [:create]
 

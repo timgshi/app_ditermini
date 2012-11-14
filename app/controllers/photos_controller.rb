@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :signed_in_user, only: [:create, :destroy]
+  before_filter :signed_in_user, only: [:create, :destroy, :show]
   before_filter :correct_user,   only: :destroy
 
   def index
@@ -28,6 +28,11 @@ class PhotosController < ApplicationController
       flash[:error] = @photo.errors.full_messages
   		redirect_to root_url
   	end
+  end
+
+  def show
+    @photo = Photo.find_by_id(params[:id])
+
   end
 
 # NOT SURE WHICH TEMPLATE TO PUT THIS IN YET, BUT THE CODE WILL GRAB LOCATION
