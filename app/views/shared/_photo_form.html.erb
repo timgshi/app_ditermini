@@ -1,5 +1,5 @@
 <div data-role='content'>
-<%= form_for(@photo) do |f| %>
+<%= form_for(@photo, :html => {"data-ajax" => "false"}) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
     	<%= f.text_field :caption, placeholder: "Write a question" %>
@@ -8,8 +8,8 @@
   	<%= f.hidden_field :lat %>
   	<%= f.hidden_field :lng %>
   	<%#= f.submit "Upload", class: "btn btn-large btn-primary" %>
-    <!-- <button name="commit" type="submit">Upload</button> -->
-	<%= link_to_function "Upload", "document.getElementById('new_photo').submit();", :class => "btn btn-large btn-primary" %>
+    <button name="commit" type="submit">Upload</button>
+	<%#= link_to_function "Upload", "document.getElementById('new_photo').submit();", :class => "btn btn-large btn-primary" %>
 <% end %>
 </div>
 <script>

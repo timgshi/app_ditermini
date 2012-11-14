@@ -13,8 +13,8 @@
   </span>
   <% if current_user.voted_on?(feed_item) %>
     <div class="ui-grid-a">
-      <div class="ui-block-a"><button id="yes<%= feed_item.id %>" type="button" style="background:Green">YES : <%= feed_item.votes_for%> </button></div>
-      <div class="ui-block-b"><button id="no<%= feed_item.id %>" type="button" style="background:Red" >NO : <%= feed_item.votes_against %></button></div>
+      <div class="ui-block-a"><button id="yes<%= feed_item.id %>" type="button" style="<%= (current_user.voted_for?(feed_item)) ? "background:Blue" : "background:Green"%>">YES : <%= feed_item.votes_for%> </button></div>
+      <div class="ui-block-b"><button id="no<%= feed_item.id %>" type="button" style="<%= (current_user.voted_against?(feed_item)) ? "background:Blue" : "background:Red"%>" >NO : <%= feed_item.votes_against %></button></div>
     </div>
   <% else %>
     <div class="ui-grid-a">
