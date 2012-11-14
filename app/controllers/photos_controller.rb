@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
       current_user.followers.each do |other_user|
         current_user.notify!(other_user, @msg)
   		end
-      redirect_to root_url
+      redirect_to @photo
   	else
       print @photo.errors.full_messages
       flash[:error] = @photo.errors.full_messages
