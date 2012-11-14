@@ -8,8 +8,8 @@
   	<%= f.hidden_field :lat %>
   	<%= f.hidden_field :lng %>
   	<%#= f.submit "Upload", class: "btn btn-large btn-primary" %>
-    <button name="commit" type="submit">Upload</button>
-	<%#= link_to_function "Upload", "document.getElementById('new_photo').submit();", :class => "btn btn-large btn-primary" %>
+    <!-- <button name="commit" type="submit">Upload</button> -->
+	<%= link_to_function "Upload", "document.getElementById('new_photo').submit();", :class => "btn btn-large btn-primary" %>
 <% end %>
 </div>
 <script>

@@ -20,7 +20,11 @@
 		$.post("user/vote", {"photoId": photoId, "voteYes": voteYes}, function (data) {
 			console.log(data);
 			console.log($("#"+id).parent().html());
-			$("#"+id).parent().parent().html(data);
+			$("#yes"+data.photo_id).html(data.yes);
+			$("#no"+data.photo_id).html(data.no);
+			console.log($("#yes"+data.photo_id).html());
+			console.log($("#no"+data.photo_id).html());
+			// $("#"+id).parent().parent().parent().html(data);
 		});
 	});
 </script>
