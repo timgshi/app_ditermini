@@ -23,6 +23,8 @@ AppDitermini::Application.routes.draw do
  
   match '/user/vote', to: "users#vote"
 
+  match 'sms', to: "sms#send_text_message"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
