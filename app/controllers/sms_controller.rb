@@ -1,7 +1,7 @@
 class SmsController < ApplicationController
 
   def send_text_message
-    number_to_send_to = params[:to_number]
+    number_to_send_to = params[:to][:number]
     message = params[:message]
     @photo = Photo.find(params[:photo_id])
     message = "Your friend #{current_user.name} would like you to vote on their outfit! Click here to vote: #{url_for(@photo)}"

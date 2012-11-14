@@ -32,7 +32,8 @@
     <section>
     	<%= form_tag(controller: "sms", action: "send_text_message", method: "post") do %>
     		<%= label_tag("To:") %>
-    		<%= telephone_field(:to_number) %>
+    		<%= hidden_field_tag(:photo_id, @photo.id) %>
+    		<%= telephone_field(:to, :number, placeholder: "Enter a phone number") %>
     		<button name="commit" type="submit">Send To Contact</button>
     	<% end %>
    	</section>
