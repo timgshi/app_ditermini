@@ -4,10 +4,11 @@
   </ol>
   <%= will_paginate @feed_items %>
 <script type="text/javascript">
-	$(".button").bind("bind", function (event, ui) {
+	$("button").bind("click", function (event, ui) {
+		console.log("button clicked");
 		var photoId;
 		var voteYes;
-		var id = event.id;
+		var id = event.srcElement.id;
 		var parent = event.parentNode;
 		if (id.substring(0, 2) == "no") {
 			photoId = id.substring(2);
@@ -17,7 +18,17 @@
 			voteYes = 1;
 		}
 		$.post("user/vote", {"photoId": photoId, "voteYes": voteYes}, function (data) {
-			$(id).parent.html(data);
+			console.log(data);
+			$("span > span", $("#yes"+data.photo_id).parent()).html("YES : " + data.yes);
+			$("span > span", $("#no"+data.photo_id).parent()).html("NO : " + data.no);
+			console.log($("#yes"+data.photo_id));
+			if(data.voted_for) {
+				$("#yes"+data.photo_id).css('background-color', 'Blue');
+				$("#no"+data.photo_id).css('background-color', 'Red');
+			} else {
+				$("#yes"+data.photo_id).css('background-color', 'Green');
+				$("#no"+data.photo_id).css('background-color', 'Blue');
+			}
 		});
 	});
 </script>

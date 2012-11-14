@@ -1,20 +1,18 @@
 <% provide(:title, @title) %>
-<div class="row">
-  <aside class="span4">
+<div data-role='content'>
     <section>
       <%= gravatar_for @user %>
       <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
+      <div data-role='button'><span><%= link_to "View my profile", @user %></span></div>
       <span><b>Photos:</b> <%= @user.photos.count %></span>
     </section>
     <section>
       <%= render 'shared/notification_stats' %>
     </section>
-  </aside>
-  <div class="span8">
+  <div data-role="content">
     <h3><%= @title %></h3>
     <% if @notifications.any? %>
-      <ul class="users">
+      <ul class="users" data-role='listview' data-inset='true'>
         <%= render @notifications %>
       </ul>
     <% end %>

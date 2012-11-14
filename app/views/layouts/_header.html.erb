@@ -40,13 +40,9 @@
   <div data-role="header"> 
     <h3>Ditermini</h3> 
     <% if signed_in? %>
-      <div data-role="button", class="ui-btn-right">
-          <%= link_to "Sign out", signout_path, method: "delete" %>
-      </div>
+      <a class="ui-btn-right", href="<%= url_for(signout_path) %>" data-method="delete">Sign Out</a>
     <% else %>
-      <div data-role="button", class="ui-btn-right">
-      <%= link_to "Sign in", signin_path %>
-      </div>
+      <a class="ui-btn-right", href="<%= url_for(signin_path) %>">Sign In</a>
     <% end %>
   </div> 
 </header>

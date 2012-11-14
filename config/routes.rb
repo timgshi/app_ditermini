@@ -20,6 +20,9 @@ AppDitermini::Application.routes.draw do
   match '/about', to: "static_pages#about"
   match '/contact', to: "static_pages#contact"
   match '/feed', to: "static_pages#feed"
+ 
+  match '/user/vote', to: "users#vote"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
