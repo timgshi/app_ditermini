@@ -16,7 +16,13 @@ class SmsController < ApplicationController
       :to => number_to_send_to,
       :body => message
     )
-    render :layout => false, :status => :ok, :text => @message
+    if @message
+      flash[:success] = "Text message sent!"
+      redirect_to url_for(@photo)
+    else
+      flash[:error] = "Didn't work"
+      redirect_to url_for(@photo)
+    end
   end
   
 end
