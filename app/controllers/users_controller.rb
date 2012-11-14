@@ -68,15 +68,18 @@ class UsersController < ApplicationController
   end
 
   def vote
-    curUser = current_user
     # curUser = User.find_by_id(session[:user_id])
     photo = Photo.find_by_id(params[:photoId])
     if params[:voteYes] == "1"
-      curUser.vote_exclusively_for(photo)
+      msg = "voted for your outfit!"
+      current_user.vote_exclusively_for(photo)
+      current_user.notify!(photo.user, msg)
     else
-      curUser.vote_exclusively_against(photo)
+      msg = "voted against your outfit!"
+      current_user.vote_exclusively_against(photo)
+      current_user.notify!(photo.user, msg)
     end
-    responseJSON = {:yes => photo.votes_for, :no => photo.votes_against, :photo_id => photo.id, :voted_for => curUser.voted_for?(photo)}
+    responseJSON = {:yes => photo.votes_for, :no => photo.votes_against, :photo_id => photo.id, :voted_for => current_user.voted_for?(photo)}
     render :layout => false, :status => :ok, :json => responseJSON
   end
 
