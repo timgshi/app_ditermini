@@ -2,9 +2,9 @@
 <%= form_for(@photo, :html => {"data-ajax" => "false"}) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-    	<%= f.text_field :caption, placeholder: "Write a question" %>
-  	<%= f.label :image %><br />
+  	<%= f.label "Take a photo of what you're wearing!" %><br />
   	<%= f.file_field :image %>
+    <%= f.text_field :caption, placeholder: "Write a question to ask people" %>
   	<%= f.hidden_field :lat %>
   	<%= f.hidden_field :lng %>
   	<%#= f.submit "Upload", class: "btn btn-large btn-primary" %>

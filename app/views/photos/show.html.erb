@@ -1,4 +1,4 @@
-<% provide(:title, "#{@photo.user.name}'s Photo") %>
+<% provide(:title, "#{@photo.user.name}/'s Photo") %>
 <div data-role='content'>
     <section>
       <h1>
@@ -10,6 +10,9 @@
     	<span class="content">
 		  <!--image_tag(gravatar_url, alt: user.name, class: "gravatar") -->
 		  <%= image_tag @photo.image.url(:feed) %>
+		</span>
+		<span>
+			Question: <%= @photo.caption %> <br/>
 		</span>
 		<span class="timestamp">
 		  Posted <%= time_ago_in_words(@photo.created_at) %> ago.
