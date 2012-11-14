@@ -11,12 +11,17 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
   </span>
-  <div class="ui-grid-a">
-    <div class="ui-block-a"><button id="yes<%= feed_item.id %>" type="button" style="background:Green">YES : <%= feed_item.votes_for%> </button></div>
-    <div class="ui-block-b"><button id="no<%= feed_item.id %>" type="button" style="background:Red" >NO : <%= feed_item.votes_against %></button></div> 
-    <!-- <div class="ui-block-a"><a id="yes<%= feed_item.id %>" data-role="button" style="background:Green">YES : <%= feed_item.votes_for%> </a></div>
-    <div class="ui-block-b"><a id="no<%= feed_item.id %>" data-role="button" style="background:Red" >NO : <%= feed_item.votes_against %></a></div>   -->  
-  </div>
+  <% if current_user.voted_on?(feed_item) %>
+    <div class="ui-grid-a">
+      <div class="ui-block-a"><button id="yes<%= feed_item.id %>" type="button" style="background:Green">YES : <%= feed_item.votes_for%> </button></div>
+      <div class="ui-block-b"><button id="no<%= feed_item.id %>" type="button" style="background:Red" >NO : <%= feed_item.votes_against %></button></div>
+    </div>
+  <% else %>
+    <div class="ui-grid-a">
+      <div class="ui-block-a"><button id="yes<%= feed_item.id %>" type="button" style="background:Green">YES</button></div>
+      <div class="ui-block-b"><button id="no<%= feed_item.id %>" type="button" style="background:Red" >NO</button></div>
+    </div>
+  <% end %>
 
   <% if current_user?(feed_item.user) %>
     <%= link_to "delete", feed_item, method: :delete,
