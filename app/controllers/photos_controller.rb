@@ -14,6 +14,7 @@ class PhotosController < ApplicationController
   	# @photo = Photo.new #current_user.photos.build(param[:photo])
     # @photo.update_attributes(user_id: current_user.id, caption: params[:photo][:caption])
     @photo = Photo.create(params[:photo])
+    @photo.user = current_user
     # @photo.update_attributes(params[:photo])
     if @photo.save
   		flash[:success] = "Photo uploaded!"
@@ -22,8 +23,9 @@ class PhotosController < ApplicationController
         current_user.notify!(other_user, @msg)
   		end
       redirect_to root_url
-  	else 
-      flash[:error] = "Didn't work..."
+  	else
+      print @photo.errors.full_messages
+      flash[:error] = @photo.errors.full_messages
   		redirect_to root_url
   	end
   end
