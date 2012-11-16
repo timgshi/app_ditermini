@@ -1,16 +1,13 @@
 <script src="//cdn.optimizely.com/js/141411332.js"></script>
 <% provide(:title, 'Find your friends') %>
+
 <div> <input type='text' id="completionMenu"/> </div>
 <div id='matchingUsers'></div> 
  <ul data-role='listview' data-inset='true'>
 <li>
   <%= gravatar_for user, size: 52 %>
   <%= link_to user.name, user %>
-  <% if false %>
-  <% if current_user.admin? && !current_user?(user) %>
-   	   <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
-	<% end %>
-	<% end %>
+  
 </li>
 </ul>
 
@@ -20,6 +17,6 @@ var processResponse=function (responseText,divname){
   this.elem=document.getElementById(divname);
   this.elem.innerHTML=responseText;
 }
-new filter("completionMenu", "/user/<%current_user.id%>findUsers", "substring", processResponse, "matchingUsers");
+new filter("completionMenu", "/user/findUsers", "substring", processResponse, "matchingUsers");
 //]]>
 </script>
