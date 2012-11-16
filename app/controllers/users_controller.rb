@@ -83,6 +83,18 @@ class UsersController < ApplicationController
     render :layout => false, :status => :ok, :json => responseJSON
   end
 
+  def findUsers
+    prefix=params[:substring].downcase
+    users=User.find(:all)
+    @selectedUsers=[]
+    for user in users
+     if (user.name.downcase).include?(prefix) 
+       @selectedUsers<<user
+      end
+    end
+    render :partial=>"findUsers"
+  end 
+
   private
 
     def signed_in_user
