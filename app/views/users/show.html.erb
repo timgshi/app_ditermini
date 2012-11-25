@@ -17,7 +17,11 @@
         <%= render @photos %>
       </ol>
       <%= will_paginate @photos %>
-    <% end %>
+     <%else %>
+    <br/> 
+    <h4> You have not yet uploaded any image. </h4>
+   <br/> 
+  <div data-role="button"> <%= link_to "Click here to Upload a New Outift","/photos/new"%>    
   </div>
-
 </div>
+<%end%>
