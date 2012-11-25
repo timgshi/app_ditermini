@@ -1,4 +1,7 @@
 <div>
+<% if @selectedUsers.size==0%>
+   <p style="font-weight:bold"> Sorry, but there are no users with that name ! </p>
+<%end%> 
 <% for user in @selectedUsers%>
   <ul data-role='listview' data-inset='true'>
   <li>
