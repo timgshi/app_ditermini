@@ -5,6 +5,7 @@ function filter(completionMenu, url, param_key, processResponse, searchDiv){
 	this.processResponse = processResponse;
 	this.searchDiv=searchDiv;
 	this.substring = this.element.value;
+	if (! this.element) return;
 	var obj=this;
 	this.element.onkeyup = function(event){
 		obj.onKeyUp(event);
