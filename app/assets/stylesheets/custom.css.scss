@@ -204,6 +204,34 @@ input, textarea, select, .uneditable-input {
   float: left;
   margin-right: 10px;
 }
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+.stats {
+  overflow: auto;
+  a {
+    color: black;
+    float: left;
+    padding: 0 5px;
+    border-left: 1px gray;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: black;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
 
 .user_avatars {
   overflow: auto;
