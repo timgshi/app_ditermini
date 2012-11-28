@@ -22,6 +22,7 @@ AppDitermini::Application.routes.draw do
   match '/feed', to: "static_pages#feed"
  
   match '/user/vote', to: "users#vote"
+  match '/user/findUsers', to: "users#findUsers"
 
   match 'sms', to: "sms#send_text_message"
 

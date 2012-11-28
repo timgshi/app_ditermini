@@ -9,6 +9,7 @@
     <section>
       <%= render 'shared/follow_stats' %>
       <% if @users.any? %>
+        <br/>
         <div class="user_avatars">
           <% @users.each do |user| %>
             <%= link_to gravatar_for(user, size: 30), user %>

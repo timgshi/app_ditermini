@@ -1,5 +1,4 @@
 <div data-role="content">
- <div data-role="fieldcontain">
 <li id="<%= feed_item.id %>">
   <%= link_to gravatar_for(feed_item.user), feed_item.user %>
   <span class="user">
@@ -22,10 +21,10 @@
       <div class="ui-block-b"><button id="no<%= feed_item.id %>" type="button" style="background:Red" >NO</button></div>
     </div>
   <% end %>
-
   <% if current_user?(feed_item.user) %>
     <%= link_to "delete", feed_item, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: feed_item.image_file_name %>
   <% end %>
 </li>
+</div>

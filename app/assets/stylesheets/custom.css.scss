@@ -1,5 +1,6 @@
 @import "bootstrap";
 
+
 /* universal css */
 
 html {
@@ -108,21 +109,24 @@ footer ul li {
 .nav-bar .ui-btn .ui-btn-inner { padding-top: 40px !important; } 
 .nav-bar .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
 #following .ui-icon { background:  url(/icons/112-group.png) 50% 50% no-repeat; background-size: 26px 22px; }
-#explore .ui-icon { background: url(/icons/globe_24.png) 50% 50% no-repeat; background-size: 24px 26px; }
+#explore .ui-icon { background: url(/icons/06-magnify.png) 50% 50% no-repeat; background-size: 24px 26px; }
 #upload .ui-icon { background:  url(/icons/86-camera.png) 50% 50% no-repeat; background-size: 24px 20px;  }
-#notifications .ui-icon { background:  url(/icons/145-persondot.png) 50% 50% no-repeat;  background-size: 24px 24px; }
-#my-closet .ui-icon { background:  url(/icons/191-collection.png) 50% 50% no-repeat;  background-size: 22px 24px; }
+#notifications .ui-icon { background:  url(/icons/124-bullhorn.png) 50% 50% no-repeat;  background-size: 24px 24px; }
+#my-closet .ui-icon { background:  url(/icons/118-coat-hanger.png) 50% 50% no-repeat;  background-size: 22px 24px; }
     
 
 /* mixins, variables, etc. */
 
-$grayMediumLight: #eaeaea;
+/*$grayMediumLight: #eaeaea;
+
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
   box-sizing: border-box;
 }
+
+*/
 
 /* miscellaneous */
 
@@ -131,32 +135,9 @@ $grayMediumLight: #eaeaea;
   float: left;
   width: 100%;
   margin-top: 45px;
-  @include box_sizing;
+ /* @include box_sizing;*/
 }
 
-/* sidebar */
-
-aside {
-  section {
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.6em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-    }
-  }
-}
 
 .gravatar {
   float: left;
@@ -171,7 +152,7 @@ input, textarea, select, .uneditable-input {
   padding: 10px;
   height: auto !important;
   margin-bottom: 15px;
-  @include box_sizing;
+ /* @include box_sizing;*/
 }
 
 #error_explanation {
@@ -195,9 +176,9 @@ input, textarea, select, .uneditable-input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px gray;
     &:last-child {
-      border-bottom: 1px solid $grayLighter;
+      border-bottom: 1px gray;
     }
   }
 }
@@ -217,7 +198,7 @@ input, textarea, select, .uneditable-input {
   display: block;
 }
 .timestamp {
-  color: $grayLight;
+  color: gray;
 }
 .gravatar {
   float: left;
@@ -233,9 +214,10 @@ aside {
 .stats {
   overflow: auto;
   a {
+    color: black;
     float: left;
     padding: 0 10px;
-    border-left: 1px solid $grayLighter;
+    border-left: 1px gray;
     color: gray;
     &:first-child {
       padding-left: 0;
@@ -243,7 +225,7 @@ aside {
     }
     &:hover {
       text-decoration: none;
-      color: $blue;
+      color: black;
     }
   }
   strong {
