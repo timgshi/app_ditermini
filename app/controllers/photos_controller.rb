@@ -32,7 +32,7 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find_by_id(params[:id])
-
+    @receivers = []
   end
 
 # NOT SURE WHICH TEMPLATE TO PUT THIS IN YET, BUT THE CODE WILL GRAB LOCATION
