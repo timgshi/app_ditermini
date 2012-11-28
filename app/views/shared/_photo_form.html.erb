@@ -4,6 +4,7 @@
 
   	<%= f.label "Take a photo of what you're wearing!" %><br />
   	<%= f.file_field :image, onchange: "readURL(this);" %>
+
     <div id="hiddenPreview">
     <img id="preview" src="#" alt="Preview Image" />
     <%= f.text_field :caption, placeholder: "Write a question about this outfit to ask people" %>
