@@ -88,7 +88,7 @@ class UsersController < ApplicationController
     users=User.find(:all)
     @selectedUsers=[]
     for user in users
-     if (user.name.downcase).include?(prefix) 
+     if (user.name.downcase).include?(prefix) or user.phone_number.include?(prefix)
        @selectedUsers<<user
       end
     end
