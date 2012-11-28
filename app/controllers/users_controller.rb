@@ -92,7 +92,11 @@ class UsersController < ApplicationController
        @selectedUsers<<user
       end
     end
-    render :partial=>"findUsers"
+    if params[:for_sms] == true
+      render :partial => "findUsersSms"
+    else
+      render :partial=>"findUsers"
+    end
   end 
 
   private

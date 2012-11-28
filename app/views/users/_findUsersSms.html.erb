@@ -1,0 +1,14 @@
+<div>
+<% if @selectedUsers.size==0%>
+   <p style="font-weight:bold"> Sorry, but there are no users with that name ! </p>
+<%end%> 
+<% for user in @selectedUsers%>
+  <ul data-role='listview' data-inset='true'>
+  <li>
+  <%= gravatar_for user, size: 52 %>
+  <%= link_to_function "", "addUserToPhoneList(this)", :id => user.id %>
+  </li>
+  </ul>
+<%end%>
+<br/>
+</div>
