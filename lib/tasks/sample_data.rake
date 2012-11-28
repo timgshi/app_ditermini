@@ -12,7 +12,7 @@ def make_users
   admin = User.create!(name:     "Admin",
                        email:    "admin@admin.com",
                        password: "password",
-                       phone_number: 5104109550,
+                       phone_number: "5104109550",
                        password_confirmation: "password")
   admin.toggle!(:admin)
   99.times do |n|
@@ -23,7 +23,7 @@ def make_users
     User.create!(name:     name,
                  email:    email,
                  password: password,
-                 phone_number: phonenum,
+                 phone_number: phonenum.to_s,
                  password_confirmation: password)
   end
 end
