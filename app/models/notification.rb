@@ -18,4 +18,6 @@ class Notification < ActiveRecord::Base
 
   validates :notifier_id, presence: true
   validates :notified_id, presence: true
+
+  default_scope order: 'notifications.created_at DESC'
 end
