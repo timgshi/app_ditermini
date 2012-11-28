@@ -1,15 +1,16 @@
 <% provide(:title, @title) %>
   <div data-role="content">
     <h1><%= @title %></h1>
-     <h4> <%= render 'shared/notification_stats' %> </h4>
     <% if @notifications.any? %>
+     <%= render "shared/follow_stats"%>
       <ul class="users" data-role='listview' data-inset='true'>
         <%= render @notifications %>
       </ul>
     <% else %>
     <br/>
     <br/>
-     <h3> You do not have any notifications at this time. </h3>
-     <h3> <div data-role="button"> <%= link_to "Click here to Find users to Follow!", "/users" %> </div> </h3> 
+     <h4> You do not have any notifications at this time. </h4>
+      <div data-role="button"> <%= link_to "Click here to Find users to Follow!", "/users" %> </div> 
+   <p style="text-align:center"><img src= "/images/excl.png" style=" opacity :0.2; height:400px"/></p>
   <% end%> 
   </div>
