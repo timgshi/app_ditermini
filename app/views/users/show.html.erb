@@ -1,8 +1,8 @@
-<% provide(:title, @user.name) %>
+<h1> <% provide(:title, @user.name) %> </h1>
 <div data-role='content'>
     <section>
       <h1>
-        <%= gravatar_for @user %>
+        <%= gravatar_for @user %> 
         <%= @user.name %>
       </h1>
     </section>
@@ -19,7 +19,7 @@
       <%= will_paginate @photos %>
     <%elsif @user==current_user%>
     <br/> 
-    <h4> You have not yet uploaded an image. </h4>
+    <h3> You have not yet uploaded an image. </h3>
    <br/> 
   <div data-role="button"> <a href="/photos/new" style="color:black"> Upload an Outift! </a>    
   </div>

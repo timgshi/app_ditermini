@@ -33,9 +33,7 @@
 	});
 </script>
   <% else %>
-  <br/>
-  <br/>
-  <h4> You have no items in your Following Feed </h4> 
-  <br/> 
-  <div data-role="button"> <%= link_to "Click here to Find Friends to Follow!", "/users"%>  </div>
+<h3> You do not have any items on your feed. </h3>
+     <h3 style="margin:20px"><div data-role="button"> <%= link_to "Click here to Find users to Follow!", "/users" %> </div> </h3>
+     <p style="text-align:center"><img src= "images/buddy.jpg" class ="noImage"/></p>
 <% end %>
