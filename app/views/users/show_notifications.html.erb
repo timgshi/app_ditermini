@@ -1,16 +1,7 @@
 <% provide(:title, @title) %>
-<div data-role='content'>
-    <section>
-      <%= gravatar_for @user %>
-      <h1><%= @user.name %></h1>
-      <div data-role='button'><span><%= link_to "View my profile", @user %></span></div>
-      <span><b>Photos:</b> <%= @user.photos.count %></span>
-    </section>
-    <section>
-      <%= render 'shared/notification_stats' %>
-    </section>
   <div data-role="content">
-    <h3><%= @title %></h3>
+    <h1><%= @title %></h1>
+     <h4> <%= render 'shared/notification_stats' %> </h4>
     <% if @notifications.any? %>
       <ul class="users" data-role='listview' data-inset='true'>
         <%= render @notifications %>
@@ -18,8 +9,7 @@
     <% else %>
     <br/>
     <br/>
-     <h4 style='text-align:center'> You do not have any notifications at this time. </h4> 
-     <div data-role="button"> <%= link_to "Click here to Find users to Follow!", "/users" %> </div> 
+     <h3> You do not have any notifications at this time. </h3>
+     <h3> <div data-role="button"> <%= link_to "Click here to Find users to Follow!", "/users" %> </div> </h3> 
   <% end%> 
   </div>
-</div>
