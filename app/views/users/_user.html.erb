@@ -6,12 +6,3 @@
 </li>
 </ul>
 
-<script type="text/javascript">
-//<![CDATA[
-var processResponse=function (responseText,divname){
-  this.elem=document.getElementById(divname);
-  this.elem.innerHTML=responseText;
-}
-new filter("completionMenu", "/user/findUsers", "substring", processResponse, "matchingUsers");
-//]]>
-</script>
