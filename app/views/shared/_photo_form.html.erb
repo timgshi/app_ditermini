@@ -3,8 +3,11 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   	<%= f.label "Take a photo of what you're wearing!" %><br />
-  	<%= f.file_field :image %>
-    <%= f.text_field :caption, placeholder: "Write a question to ask people" %>
+  	<%= f.file_field :image, onchange: "readURL(this);" %>
+    <div id="hiddenPreview">
+    <img id="preview" src="#" alt="Preview Image" />
+    <%= f.text_field :caption, placeholder: "Write a question about this outfit to ask people" %>
+    </div>
   	<%= f.hidden_field :lat %>
   	<%= f.hidden_field :lng %>
   	<%#= f.submit "Upload", class: "btn btn-large btn-primary" %>
@@ -12,8 +15,19 @@
 	<%#= link_to_function "Upload", "document.getElementById('new_photo').submit();", :class => "btn btn-large btn-primary" %>
 <% end %>
 </div>
+
 <script>
 
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#preview').attr('src', e.target.result);
+      document.getElementById('hiddenPreview').style.display="block";
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
 
 $(document).ready(function() {
 
