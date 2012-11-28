@@ -14,7 +14,7 @@
 
 class User < ActiveRecord::Base
   acts_as_voter
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :password, :password_confirmation, :phone_number
   #acts_as_voter
 
   # The following line is optional, and tracks karma (up votes) for photos this user has submitted.
