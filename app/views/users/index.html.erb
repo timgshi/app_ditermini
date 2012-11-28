@@ -17,9 +17,8 @@
 <h1>Find Your Friends </h1>
 <%= will_paginate %>
 <br/>
-<ul class="users">
-        <div> <input type='text' id="completionMenu"/> </div>
-	<div id='matchingUsers'></div> 
-
+<div> <input type='text' id="completionMenu" placeholder="Search for people"/> </div>
+<div id='matchingUsers'></div>
+<ul class="users"> 
 	<%= render @users %>
 </ul>
