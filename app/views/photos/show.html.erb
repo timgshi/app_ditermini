@@ -35,29 +35,60 @@
     <section>
       <div> <input type='text' id="completionMenu" placeholder="Search for people"/> </div>
       <div id='matchingUsers'></div>
+      <br>
       <%= form_tag("#", :id => "addcontact", :remote => true, :data => {"ajax" =>"false"}) do %>
         <%= label_tag("To:") %>
         <%= telephone_field(:to, :number, placeholder: "Enter a phone number", name: "number") %>
         <button name="add" type="submit">Add Contact</button>
       <% end %>
     	<%= form_tag(controller: "sms", action: "send_text_message", method: "post") do %>
-    		<%= label_tag("To:") %>
     		<%= hidden_field_tag(:photo_id, @photo.id) %>
+        <p>Sending to:</p>
+        <p id="sendingtolist"></p>
         <%= hidden_field_tag(:send_to) %>
-    		<%= telephone_field(:to, :number, placeholder: "Enter a phone number") %>
     		<button name="commit" type="submit">Send To Contact</button>
     	<% end %>
    	</section>
 </div>
 
 <script type="text/javascript">
+  
+  function addToSendingToList (newNumber) {
+    console.log("number to add to list: " + newNumber);
+    var value = document.getElementById("sendingtolist").innerHTML;
+    if (value.length > 0) {
+      value += ", ";
+    }
+    value += newNumber;
+    document.getElementById("sendingtolist").innerHTML = value;
+  }
+
+  function addUserToPhoneList (e) {
+    var phone = e.getAttribute("data-phone");
+    var name = e.getAttribute("data-name");
+    var value = document.getElementById("send_to").value;
+    if (value.length > 0) {
+      value += ",";
+    }
+    value += phone;
+    document.getElementById("send_to").value = value;
+    addToSendingToList(name);
+    document.getElementById("completionMenu").value = "";
+    document.getElementById("matchingUsers").innerHTML = "";
+    console.log(document.getElementById("send_to").value);
+  }
 
   $("#addcontact").submit(function(e){
     e.preventDefault();
-    var newValue = document.getElementById("send_to").value + e.srcElement.number.value;
-    console.log(newValue);
+    var newValue = document.getElementById("send_to").value;
+    if (newValue.length > 0) {
+      newValue += ",";
+    }
+    newValue += e.srcElement.number.value;
+    addToSendingToList(e.srcElement.number.value);
     document.getElementById("send_to").value = newValue;
     e.srcElement.number.value = "";
+    console.log(document.getElementById("send_to").value);
   });
 
   //<![CDATA[

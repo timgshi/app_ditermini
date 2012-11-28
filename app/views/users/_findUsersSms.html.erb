@@ -6,7 +6,7 @@
   <ul data-role='listview' data-inset='true'>
   <li>
   <%= gravatar_for user, size: 52 %>
-  <%= link_to_function "", "addUserToPhoneList(this)", :id => user.id %>
+  <%= link_to_function user.name, "addUserToPhoneList(this)", :id => user.id, data: {phone: user.phone_number, name: user.name} %>
   </li>
   </ul>
 <%end%>
