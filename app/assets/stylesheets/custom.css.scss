@@ -250,8 +250,14 @@ aside {
   }
 }
 
-/* upload form */
-
-#hiddenPreview {
-  display:none;
+.no-image{
+ align:center
+ }
+ 
+ .filter{
+  list-style-type:none;
+  clear:both;
+  margin-top:2px;
+  vertical-align:center;
 }
+  

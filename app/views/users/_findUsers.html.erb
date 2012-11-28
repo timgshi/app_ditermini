@@ -1,14 +1,13 @@
-<div>
+
 <% if @selectedUsers.size==0%>
    <p style="font-weight:bold"> Sorry, but there are no users with that name ! </p>
 <%end%> 
+ <ul data-role='listview' data-inset='true'>
 <% for user in @selectedUsers%>
-  <ul data-role='listview' data-inset='true'>
-  <li>
+  <li class="filter" style="padding-top:5px ">
   <%= gravatar_for user, size: 52 %>
   <%= link_to user.name, user %>
   </li>
-  </ul>
 <%end%>
+  </ul>
 <br/>
-</div>
