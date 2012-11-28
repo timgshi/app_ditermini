@@ -25,6 +25,7 @@ function readURL(input) {
     reader.onload = function(e) {
       $('#preview').attr('src', e.target.result);
       document.getElementById('hiddenPreview').style.display="block";
+      document.getElementById('hidden').style.display="none";
     }
     reader.readAsDataURL(input.files[0]);
   }
