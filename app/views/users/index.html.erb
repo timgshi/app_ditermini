@@ -11,13 +11,6 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-  	//<![CDATA[
-	var processResponse=function (responseText,divname){
-  	this.elem=document.getElementById(divname);
-  	this.elem.innerHTML=responseText;
-	}
-	new filter("completionMenu", "/user/findUsers", "substring", processResponse, "matchingUsers");
-	//]]>
 </script>
 
 <% provide(:title, 'Find Your Friends') %>
@@ -29,3 +22,11 @@
 <ul class="users"> 
 	<%= render @users %>
 </ul>
+
+<script type="text/javascript">
+ var processResponse=function (responseText,divname){
+  	this.elem=document.getElementById(divname);
+  	this.elem.innerHTML=responseText;
+	}
+	new filter("completionMenu", "/user/findUsers", "substring", processResponse, "matchingUsers");
+</script>
