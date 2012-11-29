@@ -10,6 +10,7 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+</script>
 
   	//<![CDATA[
 	var processResponse=function (responseText,divname){
@@ -18,7 +19,7 @@
 	}
 	new filter("completionMenu", "/user/findUsers", "substring", processResponse, "matchingUsers");
 	//]]>
-</script>
+
 
 <% provide(:title, 'Find Your Friends') %>
 <h1>Find Your Friends </h1>
