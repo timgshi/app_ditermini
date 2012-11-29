@@ -18,7 +18,7 @@
 		  Posted <%= time_ago_in_words(@photo.created_at) %> ago.
 		</span>
 		<% if current_user?(@photo.user) %>
-		  <%= link_to "delete", @photo, method: :delete, data: { confirm: "You sure?" },:html => {"data-ajax" => "false"} title: @photo.image_file_name %>
+		  <%= link_to "delete", @photo, method: :delete, data: { confirm: "You sure?" },title: @photo.image_file_name %>
 		<% end %>
 		<% if current_user.voted_on?(@photo) or current_user?(@photo.user) %>
 		    <div class="ui-grid-a">
